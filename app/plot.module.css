@@ -24,10 +24,10 @@
 .seriesName span { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
 .seriesName input { width: 100%; padding: 7px; font-size: 14px; font-weight: 600; }
 .series table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.series th { font-size: 10px; line-height: 1.5; text-align: left; color: #718096; padding: 0 5px 10px; overflow-wrap: anywhere; }
+.series th { font-size: 10px; line-height: 1.5; text-align: center; color: #718096; padding: 0 5px 10px; overflow-wrap: anywhere; }
 .series th:last-child { width: 25px; }
 .series td { padding: 4px 3px; }
-.series td input { width: 100%; padding: 8px 5px; font-size: 12px; }
+.series td input { width: 100%; padding: 8px 5px; font-size: 12px; text-align: center; }
 .series input[type=number] { appearance: textfield; -moz-appearance: textfield; }
 .series input::-webkit-inner-spin-button { appearance: none; }
 .workspace button { cursor: pointer; }

@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "ML", href: "/ml" },
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
