@@ -18,6 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <header>
           <nav aria-label="Main navigation">
+            <Link className="brand" href="/" aria-label="Graph home"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4v16h16M7 15l4-5 4 2 5-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>Graph<span className="brandDivider"/></Link>
             {menuItems.map((item) => (
               <Link key={item.href} href={item.href}>{item.label}</Link>
             ))}
