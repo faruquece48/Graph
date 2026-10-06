@@ -2,12 +2,12 @@
 html, body { margin: 0; min-height: 100%; }
 body { background: #f5f7fa; color: #243348; font-family: "Segoe UI", Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
 header { border-bottom: 1px solid #e3e8ef; background: #ffffff; }
-nav { display: flex; align-items: center; gap: 28px; padding: 18px 32px; max-width: 1400px; margin: auto; }
-nav a { color: #607085; text-decoration: none; font-size: 13px; font-weight: 600; }
+header nav { display: flex; align-items: center; gap: 28px; padding: 18px 32px; max-width: 1400px; margin: auto; }
+header nav a { color: #607085; text-decoration: none; font-size: 13px; font-weight: 600; }
 .brand { display: flex; align-items: center; gap: 10px; color: #1b3448; font-size: 20px; font-weight: 700; letter-spacing: -.6px; }
 .brand svg { width: 32px; height: 32px; padding: 4px; border-radius: 8px; background: #e8f3f1; color: #237568; }
 .brandDivider { width: 1px; height: 24px; background: #e3e8ef; margin-left: 18px; }
-@media(max-width:600px) { nav { padding: 16px; } }
-nav a:hover { color: #2563eb; }
-nav a:focus-visible { outline: 2px solid #2563eb; outline-offset: 6px; }
+@media(max-width:600px) { header nav { padding: 16px; } }
+header nav a:hover { color: #2563eb; }
+header nav a:focus-visible { outline: 2px solid #2563eb; outline-offset: 6px; }
 main { min-height: calc(100vh - 60px); }

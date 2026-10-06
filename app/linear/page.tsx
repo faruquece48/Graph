@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function Page() {
-  redirect("/");
+export default function LinearPage() {
+  redirect("/linear/two-axis");
 }

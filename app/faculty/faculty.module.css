@@ -1,0 +1,23 @@
+.page { max-width:1600px; margin:0 auto; padding:32px; color:#17233a; }
+.tableCard { overflow:hidden; border:1px solid #dfe5eb; border-radius:16px; background:white; box-shadow:0 5px 18px #17233a12; }
+.toolbar { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; padding:22px 24px 14px; }
+.eyebrow { color:#2c776a; font-size:11px; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
+.toolbar h1 { margin:5px 0 2px; font-family:Georgia,"Times New Roman",serif; font-size:21px; }
+.toolbar p { margin:0; color:#718096; font-size:12px; }
+.actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:9px; }
+.actions button { padding:10px 14px; border:1px solid #dce2e9; border-radius:8px; background:white; color:#243348; font:600 12px inherit; cursor:pointer; }
+.actions .addButton { border-color:#111a2e; background:#111a2e; color:white; }
+.message { margin:0 24px 12px; color:#2c776a; font-size:12px; }
+.scroll { overflow:auto; padding:0 16px; }
+.scroll table { width:100%; min-width:1400px; border-collapse:collapse; table-layout:fixed; }
+.scroll th,.scroll td { padding:9px 8px; border-bottom:1px solid #e1e5e9; text-align:left; }
+.scroll th { color:#172033; font:700 12px Georgia,"Times New Roman",serif; white-space:nowrap; }
+.scroll th:nth-child(1){width:34px}.scroll th:nth-child(2){width:210px}.scroll th:nth-child(3){width:210px}.scroll th:nth-child(4){width:175px}.scroll th:nth-child(5){width:235px}.scroll th:nth-child(6){width:155px}.scroll th:nth-child(7){width:220px}.scroll th:nth-child(8){width:76px}
+.scroll input,.scroll select { width:100%; min-width:0; padding:10px 11px; border:1px solid #cfd9e5; border-radius:7px; background:white; color:#17233a; font:13px Georgia,"Times New Roman",serif; }
+.scroll input:focus,.scroll select:focus { outline:2px solid #8fb6eb; outline-offset:1px; }
+.scroll input::placeholder { color:#9aa7b5; font-size:11px; }
+.serial { text-align:center!important; font:13px Georgia,"Times New Roman",serif; }
+.deleteButton { padding:10px 12px; border:0; border-radius:8px; background:#fff0f1; color:#e12632; font:600 12px inherit; cursor:pointer; }
+.source { padding:17px 24px 20px; color:#718096; font-size:12px; }
+.source a { color:#267467; font-weight:650; }
+@media(max-width:700px){.page{padding:18px 12px}.toolbar{flex-direction:column}.actions{justify-content:flex-start}.scroll{padding:0 8px}}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import "./globals.css";
+import "./plot.module.css";
 
 export const metadata: Metadata = {
   title: "Graph",
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
 
 const menuItems = [
   { label: "Home", href: "/" },
+  { label: "Linear Graph", href: "/linear/two-axis" },
+  { label: "Faculty", href: "/faculty" },
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
