@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./plot.module.css";
+import GraphLibraryTransfer from "./graph-library-transfer";
 import ColorPicker from "./color-picker";
 import CollapsiblePanel from "./collapsible-panel";
 import type { AxisSettings } from "./axis-scale";
@@ -154,6 +155,14 @@ function TwoAxisEditor({graphId,index,onDelete}:{graphId:string;index:number;onD
     setSeries(sample); setLabels(["","Inlet Temperature (K)","Room Temperature (K)"]); setShowTitles([false,true,true]);
     setAppearance(initialAppearance); setAxisSettings(initialAxes); setFonts(initialFonts); setShowPointValues(false); setLegendPosition("bottom-right"); setCardNumber(String(index+1)); setWorksheetError(""); setDownloadError("");
   }
+  useEffect(() => {
+    function collect(event: Event) {
+      const entries=(event as CustomEvent<Record<string,unknown>>).detail;
+      entries["graph.two-axis."+graphId+".v1"]={version:1,series,labels,showTitles,appearance,axisSettings,fonts,showPointValues,legendPosition,cardNumber};
+    }
+    window.addEventListener("graph-collect-backup",collect);
+    return () => window.removeEventListener("graph-collect-backup",collect);
+  },[series,labels,showTitles,appearance,axisSettings,fonts,showPointValues,legendPosition,cardNumber,graphId]);
   function saveInBrowser() {
     try {
       const saved: SavedGraph={version:1,series,labels,showTitles,appearance,axisSettings,fonts,showPointValues,legendPosition,cardNumber};
@@ -245,5 +254,5 @@ export default function TwoAxisPlot() {
   useEffect(() => { if (listReady) localStorage.setItem(graphListKey,JSON.stringify(graphIds)); },[graphIds,listReady]);
   function addGraph() { setGraphIds(ids => [...ids,"graph-"+Date.now()+"-"+Math.random().toString(36).slice(2)]); }
   function deleteGraph(id: string) { setGraphIds(ids => ids.filter(value => value !== id)); }
-  return <>{graphIds.map((id,index) => <TwoAxisEditor key={id} graphId={id} index={index} onDelete={() => deleteGraph(id)}/>)}<div className={styles.saveArea}><button className={styles.saveButton} onClick={addGraph}>+ Add another graph</button></div></>;
+  return <><GraphLibraryTransfer/>{graphIds.map((id,index) => <TwoAxisEditor key={id} graphId={id} index={index} onDelete={() => deleteGraph(id)}/>)}<div className={styles.saveArea}><button className={styles.saveButton} onClick={addGraph}>+ Add another graph</button></div></>;
 }

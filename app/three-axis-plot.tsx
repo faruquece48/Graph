@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./plot.module.css";
+import GraphLibraryTransfer from "./graph-library-transfer";
 import ColorPicker from "./color-picker";
 import CollapsiblePanel from "./collapsible-panel";
 
@@ -118,6 +119,14 @@ function ThreeAxisEditor({graphId,index,onDelete}:{graphId:string;index:number;o
     });
     return () => { active = false; };
   }, [storageKey]);
+  useEffect(() => {
+    function collect(event: Event) {
+      const entries=(event as CustomEvent<Record<string,unknown>>).detail;
+      entries[storageKey]={version:1,series,labels,showTitles,appearance,axisSettings,fonts,showPointValues,legendPosition,cardNumber};
+    }
+    window.addEventListener("graph-collect-backup",collect);
+    return () => window.removeEventListener("graph-collect-backup",collect);
+  },[series,labels,showTitles,appearance,axisSettings,fonts,showPointValues,legendPosition,cardNumber,storageKey]);
   function saveInBrowser() {
     try {
       const saved: SavedPlot = { version: 1, series, labels, showTitles, showPointValues, fonts, appearance, legendPosition, axisSettings, cardNumber };
@@ -313,5 +322,5 @@ export default function ThreeAxisPlot() {
   useEffect(() => { if (listReady) localStorage.setItem(threeAxisListKey,JSON.stringify(graphIds)); },[graphIds,listReady]);
   function addGraph() { setGraphIds(ids => [...ids,"graph-"+Date.now()+"-"+Math.random().toString(36).slice(2)]); }
   function deleteGraph(id: string) { setGraphIds(ids => ids.filter(value => value !== id)); }
-  return <div className={styles.workspace}>{graphIds.map((id,index) => <ThreeAxisEditor key={id} graphId={id} index={index} onDelete={() => deleteGraph(id)}/>)}<div className={styles.saveArea}><button className={styles.saveButton} onClick={addGraph}>+ Add another graph</button></div></div>;
+  return <div className={styles.workspace}><GraphLibraryTransfer/>{graphIds.map((id,index) => <ThreeAxisEditor key={id} graphId={id} index={index} onDelete={() => deleteGraph(id)}/>)}<div className={styles.saveArea}><button className={styles.saveButton} onClick={addGraph}>+ Add another graph</button></div></div>;
 }
