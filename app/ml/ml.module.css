@@ -1,0 +1,17 @@
+.page { max-width:1400px; margin:0 auto; padding:64px 32px 80px; color:#17233a; }
+.hero { max-width:850px; padding:64px; border:1px solid #dfe5eb; border-radius:24px; background:linear-gradient(135deg,#ffffff 0%,#edf8f5 100%); box-shadow:0 12px 36px #17233a12; }
+.eyebrow,.sectionIntro span { color:#267467; font-size:12px; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
+.hero h1 { max-width:760px; margin:14px 0 18px; font:700 clamp(38px,6vw,68px)/1.02 Georgia,"Times New Roman",serif; letter-spacing:-.035em; }
+.hero p { max-width:680px; margin:0; color:#607085; font-size:18px; line-height:1.7; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.actions a { padding:12px 18px; border-radius:9px; font-size:13px; font-weight:700; text-decoration:none; }
+.primary { background:#111a2e; color:white; }
+.secondary { border:1px solid #d4dce5; background:white; color:#243348; }
+.capabilities { margin-top:58px; }
+.sectionIntro h2 { margin:7px 0 24px; font:700 30px Georgia,"Times New Roman",serif; }
+.cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.cards article { min-height:210px; padding:28px; border:1px solid #dfe5eb; border-radius:16px; background:white; box-shadow:0 5px 18px #17233a0d; }
+.number { color:#2c776a; font:700 12px "Segoe UI",sans-serif; }
+.cards h3 { margin:36px 0 10px; font:700 20px Georgia,"Times New Roman",serif; }
+.cards p { margin:0; color:#718096; font-size:14px; line-height:1.65; }
+@media(max-width:760px){.page{padding:30px 16px 56px}.hero{padding:36px 24px}.cards{grid-template-columns:1fr}}
